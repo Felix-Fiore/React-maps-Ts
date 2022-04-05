@@ -1,4 +1,4 @@
-import { Map } from 'mapbox-gl';
+import { Map, Marker, Popup } from 'mapbox-gl';
 import { MapContext } from './MapContext';
 import { useReducer } from 'react';
 import { mapReducer } from './mapReducer';
@@ -20,10 +20,23 @@ interface Props {
 export const MapProvider = ({ children }: Props) => {
     const [state, dispatch] = useReducer(mapReducer, INITIAL_STATE);
 
+    const myLocationPopUp = new Popup({}).setHTML(
+        `<h4>This is your location</h4>`
+    );
+
+    const setMap = (map: Map) => {
+        new Marker({ color: '#61dafb' })
+            .setLngLat(map.getCenter())
+            .setPopup(myLocationPopUp)
+            .addTo(map);
+
+        dispatch({ type: 'setMap', payload: map });
+    };
     return (
         <MapContext.Provider
             value={{
                 ...state,
+                setMap,
             }}
         >
             {children}
