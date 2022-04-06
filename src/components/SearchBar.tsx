@@ -13,7 +13,7 @@ export const SearchBar = () => {
             clearTimeout(debounceRef.current);
         }
         debounceRef.current = setTimeout(() => {
-            searchPlacesByQuery(event.target.value);
+            searchPlacesByQuery(query);
         }, 350);
     };
 

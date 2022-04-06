@@ -6,6 +6,8 @@ export interface PlacesContextProps {
     userLocation?: [number, number];
     isLoadingPlaces: boolean;
     places: Feature[];
+    distance: number;
+    time: number;
 
     searchPlacesByQuery: (query: string) => Promise<Feature[]>;
 }

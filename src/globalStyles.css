@@ -23,3 +23,13 @@
 .form-control {
     border: none;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.hover:hover {
+    background-color: rgba(0, 115, 255, 0.192);
+    transition: all;
+    transition-duration: 0.15s;
+}

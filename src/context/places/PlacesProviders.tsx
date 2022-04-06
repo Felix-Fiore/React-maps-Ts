@@ -10,6 +10,8 @@ export interface PlacesState {
     userLocation?: [number, number];
     isLoadingPlaces: boolean;
     places: Feature[];
+    distance: number;
+    time: number;
 }
 
 const INITIAL_STATE: PlacesState = {
@@ -17,6 +19,8 @@ const INITIAL_STATE: PlacesState = {
     userLocation: undefined,
     isLoadingPlaces: false,
     places: [],
+    distance: 0,
+    time: 0,
 };
 
 interface props {
